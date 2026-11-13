@@ -1,0 +1,30 @@
+grafana:
+  service:
+    type: ClusterIP
+    port: 3000
+  persistence:
+    enabled: false
+
+prometheus:
+  prometheusSpec:
+    retention: 24h
+    retentionSize: "1GB"
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        memory: 1536Mi
+    storageSpec: {}
+
+alertmanager:
+  enabled: false
+
+kubeEtcd:
+  enabled: false
+
+kubeControllerManager:
+  enabled: false
+
+kubeScheduler:
+  enabled: false

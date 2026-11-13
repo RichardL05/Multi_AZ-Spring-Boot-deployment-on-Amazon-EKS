@@ -1,22 +1,22 @@
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
-  name: spring-test-cluster
+  name: spring-eks-cluster
   region: ap-southeast-2
   version: "1.36"
 vpc:
-  id: "vpc-099a0995c62ca69ad"
+  id: "vpc-0d644606022fe0e57"
   subnets:
     private:
       ap-southeast-2a:
-        id: "subnet-0315ad99482b0d716"
+        id: "subnet-03492f5e329ddccaf"
       ap-southeast-2b:
-        id: "subnet-0a5daa46133a585f8"
+        id: "subnet-035775071a04a16f1"
     public:
       ap-southeast-2a:
-        id: "subnet-0666733ce6e7e23e0"
+        id: "subnet-00cc5da9cc8b82a49"
       ap-southeast-2b:
-        id: "subnet-05383bf157fbffe4c"
+        id: "subnet-08c1c9a53f7b9f09f"
 managedNodeGroups:
   - name: ng-1
     labels: { role: worker }
@@ -27,12 +27,13 @@ managedNodeGroups:
     privateNetworking: true
     ssh:
       allow: true
-      publicKeyName: ec2-db-key-pair123
+      publicKeyName: eks-project-key
     iam:
       withAddonPolicies:
         imageBuilder: true
         awsLoadBalancerController: true
         autoScaler: true
+
 iam:
   withOIDC: true
   serviceAccounts:
@@ -40,4 +41,4 @@ iam:
         name: aws-load-balancer-controller
         namespace: kube-system
       attachPolicyARNs:
-        - "arn:aws:iam::294951922097:policy/AWSLoadBalancerControllerIAMPolicy" 
+        - "arn:aws:iam::722720288676:policy/AWSLoadBalancerControllerIAMPolicy"

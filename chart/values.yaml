@@ -1,8 +1,8 @@
 
-replicaCount: 1
+replicaCount: 2
  
 image:
-  repository: aws_account_id.abc.efg.ap-southeast-2.amazonaws.com/springboot-mysql-eks
+  repository: 722720288676.dkr.ecr.ap-southeast-2.amazonaws.com/springboot-mysql-eks-repo
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -12,7 +12,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 mysql:
-  databaseName: ts_training
+  databaseName: eksdatabase1
 
 serviceAccount:
   # Specifies whether a service account should be created
