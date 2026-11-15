@@ -43,7 +43,7 @@ eksctl version
   3.2 Install KUBECTL using command : 
 
          ``` 
-curl -LO "https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl"
+curl -LO "https://dl.k8s.io/release/v1.36.6/bin/linux/amd64/kubectl"
 
 chmod +x kubectl
 
