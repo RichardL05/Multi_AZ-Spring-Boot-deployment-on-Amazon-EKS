@@ -1,4 +1,5 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
+# Helm 4 installer snapshot. See cluster/README.md for the tool-version map.
 
 # Copyright The Helm Authors.
 #

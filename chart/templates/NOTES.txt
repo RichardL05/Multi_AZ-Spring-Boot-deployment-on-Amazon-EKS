@@ -1,10 +1,10 @@
-1. Get the application URL by running these commands:
+1. Get the application URL:
 {{- if .Values.ingress.enabled }}
-{{- range $host := .Values.ingress.hosts }}
-  {{- range .paths }}
-  http{{ if $.Values.ingress.tls }}s{{ end }}://{{ $host.host }}{{ .path }}
-  {{- end }}
-{{- end }}
+  Wait for the ALB hostname to appear:
+  kubectl get ingress spring-microservice-ingress --namespace {{ .Release.Namespace }}
+
+  export ALB_HOST=$(kubectl get ingress spring-microservice-ingress --namespace {{ .Release.Namespace }} -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+  echo "http://$ALB_HOST/"
 {{- else if contains "NodePort" .Values.service.type }}
   export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "tschart.fullname" . }})
   export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")

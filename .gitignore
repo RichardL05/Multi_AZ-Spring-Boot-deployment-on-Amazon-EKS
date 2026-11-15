@@ -35,3 +35,11 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Local backups and private deployment inputs ###
+*.bak
+.private/
+*.secrets.yaml
+.env
+.env.*
+!.env.example

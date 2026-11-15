@@ -21,8 +21,8 @@ managedNodeGroups:
   - name: ng-1
     labels: { role: worker }
     instanceType: m7i-flex.large
-    desiredCapacity: 1
-    minSize: 1
+    desiredCapacity: 2
+    minSize: 2
     maxSize: 3
     privateNetworking: true
     ssh:

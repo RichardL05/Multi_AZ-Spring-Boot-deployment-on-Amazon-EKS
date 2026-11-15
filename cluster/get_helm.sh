@@ -1,4 +1,5 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
+# Helm 3 installer snapshot; the recorded project used Helm 4. See cluster/README.md.
 
 # Copyright The Helm Authors.
 #
